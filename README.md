@@ -7,7 +7,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![C / C++](https://img.shields.io/badge/Language-C_%2F_C++-00599C?logo=cplusplus&logoColor=white)](Systems/)
-[![Rust](https://img.shields.io/badge/Language-Rust-DEA584?logo=rust&logoColor=white)](Identity/Portfolio/)
+[![Rust](https://img.shields.io/badge/Language-Rust-DEA584?logo=rust&logoColor=white)](Systems/Orb%20Kernel/)
 [![CI](https://github.com/GabrielFrigo4/personal/actions/workflows/submodules.yml/badge.svg)](https://github.com/GabrielFrigo4/personal/actions/workflows/submodules.yml)
 [![Ecosystem](https://img.shields.io/badge/Ecosystem-Federated_Hub-purple.svg)](https://github.com/GabrielFrigo4)
 
@@ -45,7 +45,7 @@ flowchart TD
 | **`Labs`**     | **`Computer Systems`**                        | CS:APP Attack Lab e binários                  | C, Assembly, GDB              | 🔒 Privado (clonável via `make clone`)                                          |
 |                | **`Symbolic Sorcery`**                        | Computação simbólica e homoiconicidade        | Common Lisp, SBCL             | 🔒 Privado (clonável via `make clone`)                                          |
 |                | **`ArqZoo`**                                  | Estruturas de dados de lote e fluxo           | Rust, Cargo                   | 🔒 Privado (clonável via `make clone`)                                          |
-| **`Identity`** | [**`Portfolio`**](Identity/Portfolio/)        | Site institucional e servidor pessoal         | Rust, Tokio, Axum, Sockets    | [`GabrielFrigo4/gabrielfrigo`](https://github.com/GabrielFrigo4/gabrielfrigo)   |
+| **`Identity`** | [**`Portfolio`**](Identity/Portfolio/)        | Site institucional e portfólio estático       | SvelteKit, Vite, Static       | [`GabrielFrigo4/gabrielfrigo`](https://github.com/GabrielFrigo4/gabrielfrigo)   |
 |                | [**`Profile`**](Identity/Profile/)            | README especial do perfil do GitHub           | Markdown, Shields.io, Mermaid | [`GabrielFrigo4/GabrielFrigo4`](https://github.com/GabrielFrigo4/GabrielFrigo4) |
 |                | **`Resumes`**                                 | Acervo de currículos e cartas de apresentação | LaTeX, Make, GitHub Actions   | 🔒 Privado (clonável via `make clone`)                                          |
 | **`OSS`**      | [**`PackageKit`**](OSS/PackageKit/)           | Gerenciamento agnóstico de pacotes            | C, GLib, Polkit               | [`PackageKit/PackageKit`](https://github.com/PackageKit/PackageKit)             |

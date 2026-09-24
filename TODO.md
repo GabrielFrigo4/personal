@@ -13,7 +13,7 @@
 | **BSD Lib (SBL)**    | Standard BSD Libraries em C23        | 🟡 Em Desenvolv. | C23, bmake, BSD 3-Clause         |
 | **BSD Emacs**        | Arquitetura & Kernel da Nova Máquina | 📜 Prototipagem  | Rust, Tokio, Lua, SDL3, Vulkan   |
 | **Orb Kernel**       | Microkernel Assíncrono para Lua      | 🟡 Em Desenvolv. | Rust, Lua 5.5, Async             |
-| **Portfolio**        | Site Institucional & Servidor        |     🟢 Ativo     | Rust, Tokio, Axum, Sockets       |
+| **Portfolio**        | Site Institucional & Portfólio       |     🟢 Ativo     | SvelteKit, Vite, Static          |
 | **Profile**          | Manifesto & Identidade GitHub        |    🟢 Estável    | Markdown, Shields.io, Mermaid    |
 | **Resumes**          | Acervo Curricular Soberano           |     🟢 Ativo     | LaTeX, Make, GitHub Actions      |
 | **Computer Systems** | Laboratório de Sistemas & Binários   |    🔒 Privado    | C, Assembly x86_64, GDB          |

@@ -10,7 +10,7 @@ O **Personal** é o quartel-general de projetos autorais e experimentação pura
 
 | Categoria      | Submódulo                                      | Papel                                                         | Repositório Remoto               |
 | :------------- | :--------------------------------------------- | :------------------------------------------------------------ | :------------------------------- |
-| **`Identity`** | [`Portfolio`](Identity/Portfolio/)             | Site pessoal em Rust + Tokio + Sockets                        | `GabrielFrigo4/gabrielfrigo`     |
+| **`Identity`** | [`Portfolio`](Identity/Portfolio/)             | Site pessoal em SvelteKit Estático (Zero Bloat)               | `GabrielFrigo4/gabrielfrigo`     |
 |                | [`Profile`](Identity/Profile/)                 | README canônico do perfil do GitHub                           | `GabrielFrigo4/GabrielFrigo4`    |
 |                | [`Resumes`](Identity/Resumes/)                 | Currículos e cartas em LaTeX                                  | `GabrielFrigo4/resumes`          |
 | **`Engines`**  | [`RNG Engine`](Engines/RNG%20Engine/)          | Engine de jogos e computação gráfica (SDL3 / WebGPU / OpenGL) | `GabrielFrigo4/rng-engine`       |
