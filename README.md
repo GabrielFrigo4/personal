@@ -35,20 +35,20 @@ flowchart TD
 
 ## 🧩 Os Componentes do Personal
 
-| Categoria      | Módulo                                             | Foco & Responsabilidade                       | Tecnologias                   | Acesso / Repositório                                                            |
-| :------------- | :------------------------------------------------- | :-------------------------------------------- | :---------------------------- | :------------------------------------------------------------------------------ |
-| **`Engines`**  | [**`RNG Engine`**](Engines/RNG%20Engine/)          | Engine e jogo em computação gráfica moderna   | C/C++, SDL3, WebGPU, OpenGL   | [`GabrielFrigo4/rng-engine`](https://github.com/GabrielFrigo4/rng-engine)       |
-| **`Systems`**  | [**`Posix Socket`**](Systems/Posix%20Socket/)      | Servidor HTTP concorrente explorando FDs      | C, POSIX.1, kqueue/epoll      | [`GabrielFrigo4/unix-sock`](https://github.com/GabrielFrigo4/unix-sock)         |
-|                | [**`BSD Lib`**](Systems/BSD%20Lib/)                | Standard BSD Libraries em C23                 | C23, bmake, BSD 3-Clause      | [`GabrielFrigo4/SBL`](https://github.com/GabrielFrigo4/SBL)                     |
-|                | [**`BSD Emacs`**](Systems/BSD%20Emacs/)            | Manifesto e arquitetura da nova máquina       | Elisp, C, Markdown            | [`GabrielFrigo4/bsd-emacs`](https://github.com/GabrielFrigo4/bsd-emacs)         |
-|                | [**`Orb Kernel`**](Systems/Orb%20Kernel/)          | Microkernel assíncrono para Lua               | Rust, Tokio, Lua 5.5          | [`GabrielFrigo4/orb`](https://github.com/GabrielFrigo4/orb)                     |
-| **`Labs`**     | [**`Computer Systems`**](Labs/Computer%20Systems/) | CS:APP Attack Lab e binários                  | C, Assembly, GDB              | 🔒 Privado (clonável via `make clone`)                                          |
-|                | [**`Symbolic Sorcery`**](Labs/Symbolic%20Sorcery/) | Computação simbólica e homoiconicidade        | Common Lisp, SBCL             | 🔒 Privado (clonável via `make clone`)                                          |
-|                | [**`ArqZoo`**](Labs/ArqZoo/)                       | Estruturas de dados de lote e fluxo           | Rust, Cargo                   | 🔒 Privado (clonável via `make clone`)                                          |
-| **`Identity`** | [**`Portfolio`**](Identity/Portfolio/)             | Site institucional e servidor pessoal         | Rust, Tokio, Axum, Sockets    | [`GabrielFrigo4/gabrielfrigo`](https://github.com/GabrielFrigo4/gabrielfrigo)   |
-|                | [**`Profile`**](Identity/Profile/)                 | README especial do perfil do GitHub           | Markdown, Shields.io, Mermaid | [`GabrielFrigo4/GabrielFrigo4`](https://github.com/GabrielFrigo4/GabrielFrigo4) |
-|                | [**`Resumes`**](Identity/Resumes/)                 | Acervo de currículos e cartas de apresentação | LaTeX, Make, GitHub Actions   | 🔒 Privado (clonável via `make clone`)                                          |
-| **`OSS`**      | [**`PackageKit`**](OSS/PackageKit/)                | Gerenciamento agnóstico de pacotes            | C, GLib, Polkit               | [`PackageKit/PackageKit`](https://github.com/PackageKit/PackageKit)             |
+| Categoria      | Módulo                                        | Foco & Responsabilidade                       | Tecnologias                   | Acesso / Repositório                                                            |
+| :------------- | :-------------------------------------------- | :-------------------------------------------- | :---------------------------- | :------------------------------------------------------------------------------ |
+| **`Engines`**  | [**`RNG Engine`**](Engines/RNG%20Engine/)     | Engine e jogo em computação gráfica moderna   | C/C++, SDL3, WebGPU, OpenGL   | [`GabrielFrigo4/rng-engine`](https://github.com/GabrielFrigo4/rng-engine)       |
+| **`Systems`**  | [**`Posix Socket`**](Systems/Posix%20Socket/) | Servidor HTTP concorrente explorando FDs      | C, POSIX.1, kqueue/epoll      | [`GabrielFrigo4/unix-sock`](https://github.com/GabrielFrigo4/unix-sock)         |
+|                | [**`BSD Lib`**](Systems/BSD%20Lib/)           | Standard BSD Libraries em C23                 | C23, bmake, BSD 3-Clause      | [`GabrielFrigo4/SBL`](https://github.com/GabrielFrigo4/SBL)                     |
+|                | [**`BSD Emacs`**](Systems/BSD%20Emacs/)       | Manifesto e arquitetura da nova máquina       | Elisp, C, Markdown            | [`GabrielFrigo4/bsd-emacs`](https://github.com/GabrielFrigo4/bsd-emacs)         |
+|                | [**`Orb Kernel`**](Systems/Orb%20Kernel/)     | Microkernel assíncrono para Lua               | Rust, Tokio, Lua 5.5          | [`GabrielFrigo4/orb`](https://github.com/GabrielFrigo4/orb)                     |
+| **`Labs`**     | **`Computer Systems`**                        | CS:APP Attack Lab e binários                  | C, Assembly, GDB              | 🔒 Privado (clonável via `make clone`)                                          |
+|                | **`Symbolic Sorcery`**                        | Computação simbólica e homoiconicidade        | Common Lisp, SBCL             | 🔒 Privado (clonável via `make clone`)                                          |
+|                | **`ArqZoo`**                                  | Estruturas de dados de lote e fluxo           | Rust, Cargo                   | 🔒 Privado (clonável via `make clone`)                                          |
+| **`Identity`** | [**`Portfolio`**](Identity/Portfolio/)        | Site institucional e servidor pessoal         | Rust, Tokio, Axum, Sockets    | [`GabrielFrigo4/gabrielfrigo`](https://github.com/GabrielFrigo4/gabrielfrigo)   |
+|                | [**`Profile`**](Identity/Profile/)            | README especial do perfil do GitHub           | Markdown, Shields.io, Mermaid | [`GabrielFrigo4/GabrielFrigo4`](https://github.com/GabrielFrigo4/GabrielFrigo4) |
+|                | **`Resumes`**                                 | Acervo de currículos e cartas de apresentação | LaTeX, Make, GitHub Actions   | 🔒 Privado (clonável via `make clone`)                                          |
+| **`OSS`**      | [**`PackageKit`**](OSS/PackageKit/)           | Gerenciamento agnóstico de pacotes            | C, GLib, Polkit               | [`PackageKit/PackageKit`](https://github.com/PackageKit/PackageKit)             |
 
 ---
 
