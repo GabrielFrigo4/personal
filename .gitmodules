@@ -1,0 +1,36 @@
+[submodule "Identity/Portfolio"]
+	path = Identity/Portfolio
+	url = https://github.com/GabrielFrigo4/gabrielfrigo.git
+[submodule "Identity/Profile"]
+	path = Identity/Profile
+	url = https://github.com/GabrielFrigo4/GabrielFrigo4.git
+[submodule "Identity/Resumes"]
+	path = Identity/Resumes
+	url = https://github.com/GabrielFrigo4/resumes.git
+[submodule "Engines/RNG Engine"]
+	path = Engines/RNG Engine
+	url = https://github.com/GabrielFrigo4/rng-engine.git
+[submodule "Systems/Posix Socket"]
+	path = Systems/Posix Socket
+	url = https://github.com/GabrielFrigo4/unix-sock.git
+[submodule "Systems/SBL"]
+	path = Systems/SBL
+	url = https://github.com/GabrielFrigo4/SBL.git
+[submodule "Systems/BSD Emacs"]
+	path = Systems/BSD Emacs
+	url = https://github.com/GabrielFrigo4/bsd-emacs.git
+[submodule "Systems/Orb"]
+	path = Systems/Orb
+	url = https://github.com/GabrielFrigo4/orb.git
+[submodule "Labs/Computer Systems"]
+	path = Labs/Computer Systems
+	url = https://github.com/GabrielFrigo4/ComputerSystems.git
+[submodule "Labs/Symbolic Sorcery"]
+	path = Labs/Symbolic Sorcery
+	url = https://github.com/GabrielFrigo4/symbolic-sorcery.git
+[submodule "Labs/ArqZoo"]
+	path = Labs/ArqZoo
+	url = https://github.com/GabrielFrigo4/ArqZoo.git
+[submodule "OSS/PackageKit"]
+	path = OSS/PackageKit
+	url = https://github.com/PackageKit/PackageKit.git
