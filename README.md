@@ -23,18 +23,12 @@ O repositório **Personal** reúne projetos autorais de engenharia, motores grá
 flowchart TD
     subgraph PH ["🚀 Personal Hub"]
         direction TB
-        ENG["🎮 Engines<br/>RNG Engine • Computação Gráfica & Shaders • SDL3 / WebGPU / OpenGL"]
-        SYS["⚙️ Systems<br/>Posix Socket • SBL (C23) • BSD Emacs • Orb (Lua Microkernel em Rust)"]
-        LAB["🔬 Labs<br/>Computer Systems (CS:APP) • Symbolic Sorcery (Lisp) • ArqZoo (Rust)"]
-        IDN["🌐 Identity<br/>Portfolio (Site Rust) • Profile (GitHub README) • Resumes (LaTeX)"]
-        OSS["📦 OSS<br/>PackageKit • Contribuições Upstream"]
+        ENG["🎮 Engines<br/>RNG Engine (SDL3 / WebGPU / OpenGL)"]
+        SYS["⚙️ Systems<br/>Posix Socket • BSD Lib (C23) • BSD Emacs • Orb Kernel (Rust+Lua)"]
+        LAB["🔬 Labs<br/>Computer Systems • Symbolic Sorcery • ArqZoo"]
+        IDN["🌐 Identity<br/>Portfolio • Profile • Resumes"]
+        OSS["📦 OSS<br/>PackageKit Upstream"]
     end
-
-    PH --> ENG
-    PH --> SYS
-    PH --> LAB
-    PH --> IDN
-    PH --> OSS
 ```
 
 ---
@@ -45,9 +39,9 @@ flowchart TD
 | :------------- | :------------------------------------------------- | :-------------------------------------------- | :---------------------------- | :------------------------------------------------------------------------------------ |
 | **`Engines`**  | [**`RNG Engine`**](Engines/RNG%20Engine/)          | Engine e jogo em computação gráfica moderna   | C/C++, SDL3, WebGPU, OpenGL   | [`GabrielFrigo4/rng-engine`](https://github.com/GabrielFrigo4/rng-engine)             |
 | **`Systems`**  | [**`Posix Socket`**](Systems/Posix%20Socket/)      | Servidor HTTP concorrente explorando FDs      | C, POSIX.1, kqueue/epoll      | [`GabrielFrigo4/unix-sock`](https://github.com/GabrielFrigo4/unix-sock)               |
-|                | [**`SBL`**](Systems/SBL/)                          | Standard BSD Libraries em C23                 | C23, bmake, BSD 3-Clause      | [`GabrielFrigo4/SBL`](https://github.com/GabrielFrigo4/SBL)                           |
+|                | [**`BSD Lib`**](Systems/BSD%20Lib/)                | Standard BSD Libraries em C23                 | C23, bmake, BSD 3-Clause      | [`GabrielFrigo4/SBL`](https://github.com/GabrielFrigo4/SBL)                           |
 |                | [**`BSD Emacs`**](Systems/BSD%20Emacs/)            | Manifesto e arquitetura da nova máquina       | Elisp, C, Markdown            | [`GabrielFrigo4/bsd-emacs`](https://github.com/GabrielFrigo4/bsd-emacs)               |
-|                | [**`Orb`**](Systems/Orb/)                          | Microkernel assíncrono para Lua               | Rust, Tokio, Lua 5.5          | [`GabrielFrigo4/orb`](https://github.com/GabrielFrigo4/orb)                           |
+|                | [**`Orb Kernel`**](Systems/Orb%20Kernel/)          | Microkernel assíncrono para Lua               | Rust, Tokio, Lua 5.5          | [`GabrielFrigo4/orb`](https://github.com/GabrielFrigo4/orb)                           |
 | **`Labs`**     | [**`Computer Systems`**](Labs/Computer%20Systems/) | CS:APP Attack Lab e binários                  | C, Assembly, GDB              | [`GabrielFrigo4/ComputerSystems`](https://github.com/GabrielFrigo4/ComputerSystems)   |
 |                | [**`Symbolic Sorcery`**](Labs/Symbolic%20Sorcery/) | Computação simbólica e homoiconicidade        | Common Lisp, SBCL             | [`GabrielFrigo4/symbolic-sorcery`](https://github.com/GabrielFrigo4/symbolic-sorcery) |
 |                | [**`ArqZoo`**](Labs/ArqZoo/)                       | Estruturas de dados de lote e fluxo           | Rust, Cargo                   | [`GabrielFrigo4/ArqZoo`](https://github.com/GabrielFrigo4/ArqZoo)                     |

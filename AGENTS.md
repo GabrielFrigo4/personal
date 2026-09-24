@@ -15,9 +15,9 @@ O **Personal** é o quartel-general de projetos autorais e experimentação pura
 |                | [`Resumes`](Identity/Resumes/)                 | Currículos e cartas em LaTeX                                  | `GabrielFrigo4/resumes`          |
 | **`Engines`**  | [`RNG Engine`](Engines/RNG%20Engine/)          | Engine de jogos e computação gráfica (SDL3 / WebGPU / OpenGL) | `GabrielFrigo4/rng-engine`       |
 | **`Systems`**  | [`Posix Socket`](Systems/Posix%20Socket/)      | Servidor HTTP concorrente em C/POSIX explorando FDs           | `GabrielFrigo4/unix-sock`        |
-|                | [`SBL`](Systems/SBL/)                          | Standard BSD Libraries em C23                                 | `GabrielFrigo4/SBL`              |
+|                | [`BSD Lib`](Systems/BSD%20Lib/)                | Standard BSD Libraries em C23                                 | `GabrielFrigo4/SBL`              |
 |                | [`BSD Emacs`](Systems/BSD%20Emacs/)            | Manifesto e arquitetura da nova máquina                       | `GabrielFrigo4/bsd-emacs`        |
-|                | [`Orb`](Systems/Orb/)                          | Microkernel assíncrono para Lua em Rust                       | `GabrielFrigo4/orb`              |
+|                | [`Orb Kernel`](Systems/Orb%20Kernel/)          | Microkernel assíncrono para Lua em Rust                       | `GabrielFrigo4/orb`              |
 | **`Labs`**     | [`Computer Systems`](Labs/Computer%20Systems/) | CS:APP Attack Lab e laboratórios de arquitetura               | `GabrielFrigo4/ComputerSystems`  |
 |                | [`Symbolic Sorcery`](Labs/Symbolic%20Sorcery/) | Common Lisp & computação simbólica                            | `GabrielFrigo4/symbolic-sorcery` |
 |                | [`ArqZoo`](Labs/ArqZoo/)                       | Simulação algorítmica e grafos em Rust                        | `GabrielFrigo4/ArqZoo`           |
@@ -56,9 +56,9 @@ Personal/
 │   └── PackageKit
 ├── Systems/                   # Protocolos, runtimes e baixo nível
 │   ├── BSD Emacs
-│   ├── Orb
-│   ├── Posix Socket
-│   └── SBL
+│   ├── BSD Lib
+│   ├── Orb Kernel
+│   └── Posix Socket
 ├── AGENTS.md                  # Este briefing de engenharia
 ├── LICENSE                    # Licença MIT
 ├── Makefile                   # Orquestrador POSIX silencioso
