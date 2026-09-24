@@ -22,15 +22,6 @@
 
 ---
 
-## 🎯 Grandes Épicos do Hub
+## 🎯 Backlog & Tarefas
 
-### 1. 🎮 RNG Engine & Gráficos Modernos
-
-- [ ] **Integração com SDL3 & WebGPU:** Estabelecer pipeline limpo de renderização sem dependência de OpenGL legado.
-- [ ] **Gerenciador de Janelas & Contexto:** Validação multiplataforma no FreeBSD (Wayland), Linux e Windows.
-
-### 2. ⚙️ Systems & Baixo Nível Soberano
-
-- [ ] **BSD Lib (SBL):** Implementação de estruturas canônicas em C23 com atributos `[[nodiscard]]` e aritmética imune a overflow (`<stdckdint.h>`).
-- [ ] **Posix Socket:** Benchmarking de I/O concorrente sob alta carga com `kqueue` no FreeBSD e `epoll` no Linux.
-- [ ] **BSD Emacs:** Protótipo da FFI entre o Kernel Rust e a Userland Lua via SDL3.
+_Nenhuma tarefa pendente no momento._
