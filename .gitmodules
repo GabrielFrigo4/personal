@@ -6,10 +6,6 @@
 	path = Identity/Profile
 	url = https://github.com/GabrielFrigo4/GabrielFrigo4.git
 	branch = main
-[submodule "Identity/Resumes"]
-	path = Identity/Resumes
-	url = https://github.com/GabrielFrigo4/resumes.git
-	branch = main
 [submodule "Engines/RNG Engine"]
 	path = Engines/RNG Engine
 	url = https://github.com/GabrielFrigo4/rng-engine.git
@@ -29,18 +25,6 @@
 [submodule "Systems/Orb Kernel"]
 	path = Systems/Orb Kernel
 	url = https://github.com/GabrielFrigo4/orb.git
-	branch = main
-[submodule "Labs/Computer Systems"]
-	path = Labs/Computer Systems
-	url = https://github.com/GabrielFrigo4/ComputerSystems.git
-	branch = main
-[submodule "Labs/Symbolic Sorcery"]
-	path = Labs/Symbolic Sorcery
-	url = https://github.com/GabrielFrigo4/symbolic-sorcery.git
-	branch = main
-[submodule "Labs/ArqZoo"]
-	path = Labs/ArqZoo
-	url = https://github.com/GabrielFrigo4/ArqZoo.git
 	branch = main
 [submodule "OSS/PackageKit"]
 	path = OSS/PackageKit

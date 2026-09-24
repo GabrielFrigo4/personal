@@ -1,4 +1,10 @@
-Vault/
+# Private Repositories (Cloned via SSH in Makefile)
+Identity/Resumes/
+Labs/Computer Systems/
+Labs/Symbolic Sorcery/
+Labs/ArqZoo/
+
+# System and editor temporary files
 *.tmp
 *.swp
 *.swo
