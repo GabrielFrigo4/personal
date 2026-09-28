@@ -62,7 +62,7 @@ Personal/
 ├── AGENTS.md                  # Este briefing de engenharia
 ├── LICENSE                    # Licença MIT
 ├── Makefile                   # Orquestrador POSIX silencioso
-├── PRINCIPLES.md              # 18 Princípios de Engenharia aplicados
+├── PRINCIPLES.md              # 22 Princípios de Engenharia aplicados
 └── README.md                  # Apresentação executiva do Personal Hub
 ```
 
