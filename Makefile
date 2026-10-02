@@ -37,40 +37,31 @@ help:
 ### ================================
 ### REPOSITORIES ORCHESTRATION
 ### ================================
+PRIVATE_REPOS := \
+	"Identity/Resumes:GabrielFrigo4/resumes" \
+	"Labs/Computer Systems:GabrielFrigo4/ComputerSystems" \
+	"Labs/Symbolic Sorcery:GabrielFrigo4/symbolic-sorcery" \
+	"Labs/ArqZoo:GabrielFrigo4/ArqZoo"
+
 clone:
 	echo "📦 Inicializando submódulos públicos..."
 	git submodule update --init --recursive
-	echo "✅ Submódulos públicos inicializados!"
+	echo "✅ Submódulos públicos inicializados!\n"
+	echo "🔐 Verificando repositórios privados..."
+	for entry in $(PRIVATE_REPOS); do \
+		dir=$${entry%%:*}; \
+		repo=$${entry##*:}; \
+		if [ -e "$$dir/.git" ]; then \
+			echo "  ℹ️  $$dir já clonado."; \
+		elif git clone "git@github.com:$$repo.git" "$$dir" 2>/dev/null; then \
+			echo "  ✅ $$dir clonado com sucesso via SSH!"; \
+		elif gh repo clone "$$repo" "$$dir" 2>/dev/null; then \
+			echo "  ✅ $$dir clonado com sucesso via gh CLI!"; \
+		else \
+			echo "  ⚠️  $$dir: clone falhou (verifique SSH ou login no gh)."; \
+		fi; \
+	done
 	echo ""
-	echo "🔐 Clonando repositórios privados via SSH (se autorizado)..."
-	if [ -e "Identity/Resumes/.git" ]; then \
-		echo "  ℹ️  Identity/Resumes já clonado."; \
-	elif git clone "git@github.com:GabrielFrigo4/resumes.git" Identity/Resumes 2> "/dev/null"; then \
-		echo "  ✅ Identity/Resumes clonado com sucesso!"; \
-	else \
-		echo "  ⚠️  Identity/Resumes: clone falhou (verifique sua chave SSH)."; \
-	fi
-	if [ -e "Labs/Computer Systems/.git" ]; then \
-		echo "  ℹ️  Labs/Computer Systems já clonado."; \
-	elif git clone "git@github.com:GabrielFrigo4/ComputerSystems.git" "Labs/Computer Systems" 2> "/dev/null"; then \
-		echo "  ✅ Labs/Computer Systems clonado com sucesso!"; \
-	else \
-		echo "  ⚠️  Labs/Computer Systems: clone falhou (verifique sua chave SSH)."; \
-	fi
-	if [ -e "Labs/Symbolic Sorcery/.git" ]; then \
-		echo "  ℹ️  Labs/Symbolic Sorcery já clonado."; \
-	elif git clone "git@github.com:GabrielFrigo4/symbolic-sorcery.git" "Labs/Symbolic Sorcery" 2> "/dev/null"; then \
-		echo "  ✅ Labs/Symbolic Sorcery clonado com sucesso!"; \
-	else \
-		echo "  ⚠️  Labs/Symbolic Sorcery: clone falhou (verifique sua chave SSH)."; \
-	fi
-	if [ -e "Labs/ArqZoo/.git" ]; then \
-		echo "  ℹ️  Labs/ArqZoo já clonado."; \
-	elif git clone "git@github.com:GabrielFrigo4/ArqZoo.git" Labs/ArqZoo 2> "/dev/null"; then \
-		echo "  ✅ Labs/ArqZoo clonado com sucesso!"; \
-	else \
-		echo "  ⚠️  Labs/ArqZoo: clone falhou (verifique sua chave SSH)."; \
-	fi
 	echo "🎉 Personal pronto!"
 
 pull:
