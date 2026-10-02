@@ -30,3 +30,7 @@
 	path = OSS/PackageKit
 	url = https://github.com/PackageKit/PackageKit.git
 	branch = main
+[submodule "Games/PyForm"]
+	path = Games/PyForm
+	url = https://github.com/GabrielFrigo4/pyform.git
+	branch = main
