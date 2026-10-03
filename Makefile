@@ -7,9 +7,9 @@ MAKEFLAGS += --no-print-directory -s
 # Makefile: Personal Hub Orchestrator
 # ----------------------------------------------------------------
 
-.PHONY: help clone pull status test audit format prettier lint-md hooks ci
+.PHONY: help clone pull status test audit format prettier lint-md hooks ci main
 
-PRIVATE_REPOS = Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo
+REPOS = Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo
 
 ### ================================
 ### HELP & DOCUMENTATION
@@ -22,6 +22,7 @@ help:
 	printf "  =========================================================================\n"; \
 	sec "Sincronização & Repositórios:"; \
 	cmd "clone"          "Inicializa submódulos públicos e clona repositórios privados via SSH"; \
+	cmd "main"           "Alterna todos os submódulos e repositórios clonados para a branch main"; \
 	cmd "pull"           "Atualiza todos os submódulos e repositórios com o GitHub"; \
 	sec "Diagnóstico & Status:"; \
 	cmd "status"         "Exibe status Git resumido dos ecossistemas públicos e privados"; \
@@ -62,13 +63,27 @@ clone:
 		fi; \
 	done
 	echo ""
+	$(MAKE) main
 	echo "🎉 Personal pronto!"
 
-pull:
+main:
+	echo "🌿 Alternando ecossistema para a branch main..."
+	git submodule foreach --quiet --recursive 'git checkout main 2>/dev/null || git switch main 2>/dev/null || true'
+	for r in $(REPOS); do \
+		if [ -e "$$r/.git" ]; then \
+			echo "  🌿 $$r -> main"; \
+			git -C "$$r" checkout main 2> "/dev/null" || git -C "$$r" switch main 2> "/dev/null" || echo "  ⚠️  $$r: falha ao alternar para main."; \
+		else \
+			echo "  ⏭️  $$r: não clonado, pulando."; \
+		fi; \
+	done
+	echo "✅ Repositórios ativos configurados na branch main!\n"
+
+pull: main
 	echo "🔄 Sincronizando submódulos públicos..."
 	git submodule update --remote --merge
 	echo "⬇️  Atualizando repositórios privados..."
-	for r in Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo; do \
+	for r in $(REPOS); do \
 		if [ -e "$$r/.git" ]; then \
 			echo "⬇️  Pulling $$r..."; \
 			git -C "$$r" pull --ff-only 2> "/dev/null" || git -C "$$r" pull || echo "⚠️  Falha ao atualizar $$r"; \
@@ -81,7 +96,7 @@ status:
 	git submodule status
 	echo ""
 	echo "=== 🔒 Repositórios Privados ==="
-	for r in Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo; do \
+	for r in $(REPOS); do \
 		if [ -e "$$r/.git" ]; then \
 			echo "[$$(git -C "$$r" branch --show-current 2> "/dev/null" || echo "detached")] $$r:"; \
 			git -C "$$r" status -s; \
