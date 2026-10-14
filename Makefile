@@ -9,7 +9,7 @@ MAKEFLAGS += --no-print-directory -s
 
 .PHONY: help clone pull status test audit format prettier lint-md hooks ci main
 
-REPOS = Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo
+REPOS = Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo Engines/Extração
 
 ### ================================
 ### HELP & DOCUMENTATION
@@ -42,7 +42,8 @@ PRIVATE_REPOS := \
 	"Identity/Resumes:GabrielFrigo4/resumes" \
 	"Labs/Computer Systems:GabrielFrigo4/ComputerSystems" \
 	"Labs/Symbolic Sorcery:GabrielFrigo4/symbolic-sorcery" \
-	"Labs/ArqZoo:GabrielFrigo4/ArqZoo"
+	"Labs/ArqZoo:GabrielFrigo4/ArqZoo" \
+	"Engines/Extração:GabrielFrigo4/ollama-vision"
 
 clone:
 	echo "📦 Inicializando submódulos públicos..."

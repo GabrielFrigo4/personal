@@ -14,6 +14,7 @@ O **Personal** é o quartel-general de projetos autorais e experimentação pura
 |                | [`Profile`](Identity/Profile/)                 | README canônico do perfil do GitHub                           | `GabrielFrigo4/GabrielFrigo4`    |
 |                | [`Resumes`](Identity/Resumes/)                 | Currículos e cartas em LaTeX                                  | `GabrielFrigo4/resumes`          |
 | **`Engines`**  | [`RNG Engine`](Engines/RNG%20Engine/)          | Engine de jogos e computação gráfica (SDL3 / WebGPU / OpenGL) | `GabrielFrigo4/rng-engine`       |
+|                | [`Extração`](Engines/Extração/)                | Pipeline paleográfico local (Ollama + Gemma Vision)           | `GabrielFrigo4/ollama-vision`    |
 | **`Systems`**  | [`Posix Socket`](Systems/Posix%20Socket/)      | Servidor HTTP concorrente em C/POSIX explorando FDs           | `GabrielFrigo4/unix-sock`        |
 |                | [`BSD Lib`](Systems/BSD%20Lib/)                | Standard BSD Libraries em C23                                 | `GabrielFrigo4/SBL`              |
 |                | [`BSD Emacs`](Systems/BSD%20Emacs/)            | Manifesto e arquitetura da nova máquina                       | `GabrielFrigo4/bsd-emacs`        |
@@ -43,6 +44,7 @@ Personal/
 ├── .githooks/                 # Quality gates de pre-commit e commit-msg
 ├── .github/                   # Workflows de CI
 ├── Engines/                   # Computação gráfica, engines e jogos
+│   ├── Extração
 │   └── RNG Engine
 ├── Identity/                  # Portfólio, perfil e currículos
 │   ├── Portfolio

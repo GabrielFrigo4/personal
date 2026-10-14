@@ -19,6 +19,7 @@
 | **Computer Systems** | Laboratório de Sistemas & Binários   |    🔒 Privado    | C, Assembly x86_64, GDB          |
 | **Symbolic Sorcery** | Computação Simbólica & Homoicone     |    🔒 Privado    | Common Lisp, SBCL                |
 | **ArqZoo**           | Estruturas de Dados e Algoritmos     |    🔒 Privado    | Rust, Cargo                      |
+| **Extração**         | Pipeline Paleográfico de Manuscritos |    🔒 Privado    | Python, OpenCV, Ollama, Gemma    |
 
 ---
 
