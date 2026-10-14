@@ -26,7 +26,11 @@
 	path = Systems/Orb Kernel
 	url = https://github.com/GabrielFrigo4/orb.git
 	branch = main
-[submodule "OSS/PackageKit"]
+[submodule "OSS/ModernGL"]
+	path = OSS/ModernGL
+	url = https://github.com/ModernGL/ModernGL.git
+	branch = main
+	[submodule "OSS/PackageKit"]
 	path = OSS/PackageKit
 	url = https://github.com/PackageKit/PackageKit.git
 	branch = main
