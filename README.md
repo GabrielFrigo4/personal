@@ -23,7 +23,7 @@ O repositório **Personal** reúne projetos autorais de engenharia, motores grá
 flowchart TD
     subgraph PH ["🚀 Personal Hub"]
         direction TB
-        ENG["🎮 Engines<br/>RNG Engine (SDL3 / WebGPU / OpenGL) • Extração (Ollama Vision)"]
+        ENG["🎮 Engines<br/>RNG Engine (SDL3 / WebGPU / OpenGL) • Ollama Vision (Gemma + OpenCV)"]
         SYS["⚙️ Systems<br/>Posix Socket • BSD Lib (C23) • BSD Emacs • Orb Kernel (Rust+Lua)"]
         LAB["🔬 Labs<br/>Computer Systems • Symbolic Sorcery • ArqZoo"]
         IDN["🌐 Identity<br/>Portfolio • Profile • Resumes"]
@@ -38,7 +38,7 @@ flowchart TD
 | Categoria      | Módulo                                        | Foco & Responsabilidade                       | Tecnologias                   | Acesso / Repositório                                                            |
 | :------------- | :-------------------------------------------- | :-------------------------------------------- | :---------------------------- | :------------------------------------------------------------------------------ |
 | **`Engines`**  | [**`RNG Engine`**](Engines/RNG%20Engine/)     | Engine e jogo em computação gráfica moderna   | C/C++, SDL3, WebGPU, OpenGL   | [`GabrielFrigo4/rng-engine`](https://github.com/GabrielFrigo4/rng-engine)       |
-|                | **`Extração`**                                | Pipeline paleográfico local de manuscritos    | Python, OpenCV, Ollama, Gemma | 🔒 Privado (clonável via `make clone`)                                          |
+|                | **`Ollama Vision`**                           | Pipeline paleográfico local de manuscritos    | Python, OpenCV, Ollama, Gemma | 🔒 Privado (clonável via `make clone`)                                          |
 | **`Games`**    | [**`PyForm`**](Games/PyForm/)                 | Motor gráfico e formas procedurais            | Python 3.12, ModernGL, GLFW   | [`GabrielFrigo4/pyform`](https://github.com/GabrielFrigo4/pyform)               |
 | **`Systems`**  | [**`Posix Socket`**](Systems/Posix%20Socket/) | Servidor HTTP concorrente explorando FDs      | C, POSIX.1, kqueue/epoll      | [`GabrielFrigo4/unix-sock`](https://github.com/GabrielFrigo4/unix-sock)         |
 |                | [**`BSD Lib`**](Systems/BSD%20Lib/)           | Standard BSD Libraries em C23                 | C23, bmake, BSD 3-Clause      | [`GabrielFrigo4/SBL`](https://github.com/GabrielFrigo4/SBL)                     |
