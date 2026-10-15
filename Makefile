@@ -29,9 +29,9 @@ help:
 	cmd "hooks"          "Configura e aplica permissões canônicas em .githooks"; \
 	sec "Qualidade & Testes:"; \
 	cmd "test"           "Valida integridade e sintaxe de shell scripts"; \
-	cmd "format"         "Formata documentações Markdown com Prettier"; \
-	cmd "prettier"       "Formata documentações Markdown com Prettier"; \
-	cmd "lint-md"        "Valida formatação de Markdown sem alterar arquivos"; \
+	cmd "format"         "Formata recursivamente arquivos (MD, JSON, YAML) exceto OSS"; \
+	cmd "prettier"       "Formata recursivamente arquivos (MD, JSON, YAML) exceto OSS"; \
+	cmd "lint-md"        "Valida formatação recursiva sem alterar arquivos"; \
 	cmd "ci"             "Executa pipeline local completa de validação"; \
 	echo ""
 
@@ -120,19 +120,51 @@ test:
 	echo "✅ Validação de sintaxe aprovada!"
 
 format:
-	echo "🎨 Formatando arquivos Markdown com Prettier..."
+	echo "🎨 Formatando arquivos (MD, JSON, YAML) com Prettier recursivamente (exceto OSS)..."
 	if command -v prettier > "/dev/null" 2>&1; then \
-		find . -maxdepth 1 -name "*.md" -exec prettier --write {} +; \
-		echo "✅ Markdown formatado!"; \
+		find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.yml" -o -name "*.yaml" \) \
+			-not -path "*/.git/*" -not -path "*/OSS/*" -not -path "*/Identity/Portfolio/*" \
+			-not -path "*/.venv/*" -not -path "*/node_modules/*" \
+			-not -path "*/var/*" -not -path "*/tmp/*" -not -path "*/build/*" -not -path "*/dist/*" \
+			-exec prettier --write {} +; \
+		if [ -f "Identity/Portfolio/Makefile" ]; then \
+			(cd Identity/Portfolio && $(MAKE) format 2> "/dev/null" || true); \
+		fi; \
+		echo "✅ Todos os arquivos do Personal foram formatados recursivamente (exceto OSS)!"; \
+	elif command -v npx > "/dev/null" 2>&1; then \
+		find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.yml" -o -name "*.yaml" \) \
+			-not -path "*/.git/*" -not -path "*/OSS/*" -not -path "*/Identity/Portfolio/*" \
+			-not -path "*/.venv/*" -not -path "*/node_modules/*" \
+			-not -path "*/var/*" -not -path "*/tmp/*" -not -path "*/build/*" -not -path "*/dist/*" \
+			-exec npx --yes prettier --write {} +; \
+		if [ -f "Identity/Portfolio/Makefile" ]; then \
+			(cd Identity/Portfolio && $(MAKE) format 2> "/dev/null" || true); \
+		fi; \
+		echo "✅ Todos os arquivos do Personal foram formatados recursivamente (exceto OSS)!"; \
+	else \
+		echo "⚠️ Prettier não encontrado no PATH."; \
 	fi
 
 prettier: format
 
 lint-md:
-	echo "🔍 Validando formatação de Markdown..."
+	echo "🔍 Validando formatação (MD, JSON, YAML) com Prettier..."
 	if command -v prettier > "/dev/null" 2>&1; then \
-		find . -maxdepth 1 -name "*.md" -exec prettier --check {} +; \
-		echo "✅ Markdown em conformidade!"; \
+		find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.yml" -o -name "*.yaml" \) \
+			-not -path "*/.git/*" -not -path "*/OSS/*" -not -path "*/Identity/Portfolio/*" \
+			-not -path "*/.venv/*" -not -path "*/node_modules/*" \
+			-not -path "*/var/*" -not -path "*/tmp/*" -not -path "*/build/*" -not -path "*/dist/*" \
+			-exec prettier --check {} +; \
+		echo "✅ Formatação 100% em conformidade!"; \
+	elif command -v npx > "/dev/null" 2>&1; then \
+		find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.yml" -o -name "*.yaml" \) \
+			-not -path "*/.git/*" -not -path "*/OSS/*" -not -path "*/Identity/Portfolio/*" \
+			-not -path "*/.venv/*" -not -path "*/node_modules/*" \
+			-not -path "*/var/*" -not -path "*/tmp/*" -not -path "*/build/*" -not -path "*/dist/*" \
+			-exec npx --yes prettier --check {} +; \
+		echo "✅ Formatação 100% em conformidade!"; \
+	else \
+		echo "ℹ️ Prettier não instalado; pulando validação."; \
 	fi
 
 ci: test lint-md status
