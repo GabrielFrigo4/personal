@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ### ================================
-### ENVIRONMENT PRE-COMMIT HOOK
+### PERSONAL PRE-COMMIT HOOK
 ### ================================
 
 set -e
@@ -9,10 +9,10 @@ set -e
 _repo_root="$(git rev-parse --show-toplevel 2> "/dev/null" || pwd)"
 cd "${_repo_root}"
 
-echo "🔍 [pre-commit] Executing Universal Environment hub quality gates..."
+echo "🔍 [pre-commit] Executing Personal Hub quality gates..."
 
 ### --------------------------------
-### Whitespace & Formatting Check
+### WHITESPACE & FORMATTING CHECK
 ### --------------------------------
 echo "  ↳ Checking whitespace and formatting (git diff --check)..."
 if ! git diff --check --cached; then
@@ -22,19 +22,19 @@ if ! git diff --check --cached; then
 fi
 
 ### --------------------------------
-### Submodules Integrity Check
+### SUBMODULES INTEGRITY CHECK
 ### --------------------------------
 echo "  ↳ Validating git submodules status..."
 git submodule status
 
 ### --------------------------------
-### Shell Scripts Syntax Check
+### SHELL SCRIPTS SYNTAX CHECK
 ### --------------------------------
 echo "  ↳ Validating shell scripts syntax..."
 find . -name "*.sh" -not -path "*/.git/*" -exec sh -n {} +
 
 ### --------------------------------
-### Banner Geometry & Length Check
+### BANNER GEOMETRY & LENGTH
 ### --------------------------------
 if command -v python3 > "/dev/null" 2>&1; then
 	_staged_sh=$(git diff --cached --name-only --diff-filter=d | grep '\.sh$' 2> "/dev/null" || true)
@@ -78,7 +78,7 @@ if failed:
 fi
 
 ### --------------------------------
-### Markdown Prettier Validation
+### MARKDOWN PRETTIER VALIDATION
 ### --------------------------------
 if command -v prettier > "/dev/null" 2>&1; then
 	echo "  ↳ Validating staged Markdown files with Prettier..."
@@ -95,5 +95,5 @@ if command -v prettier > "/dev/null" 2>&1; then
 	fi
 fi
 
-echo "✅ [pre-commit] Universal Environment quality gates passed cleanly!"
+echo "✅ [pre-commit] Personal Hub quality gates passed cleanly!"
 exit 0

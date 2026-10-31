@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 
 # ================================================================
-# Private Federated Repositories
+# PRIVATE FEDERATED REPOSITORIES
 # ================================================================
 Identity/Resumes/
 Labs/Computer Systems/
@@ -12,7 +12,7 @@ Labs/ArqZoo/
 Engines/Ollama Vision/
 
 # ================================================================
-# Temporary Files & Editor Backups
+# TEMPORARY FILES & EDITOR BACKUPS
 # ================================================================
 *.tmp
 *.swp
@@ -20,7 +20,7 @@ Engines/Ollama Vision/
 *~
 
 # ================================================================
-# Operating System Cruft
+# OPERATING SYSTEM CRUFT
 # ================================================================
 .DS_Store
 Thumbs.db
