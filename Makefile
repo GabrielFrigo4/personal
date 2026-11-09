@@ -7,7 +7,7 @@ MAKEFLAGS += --no-print-directory -s
 # Makefile: Personal Hub Orchestrator
 # ----------------------------------------------------------------
 
-.PHONY: help clone pull status test audit format prettier lint-format hooks ci main
+.PHONY: help clone pull status test audit format prettier lint-format hooks ci main clean
 
 REPOS = Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo "Engines/Ollama Vision"
 
@@ -33,6 +33,8 @@ help:
 	cmd "prettier"       "Formata recursivamente arquivos (MD, JSON, YAML, HTML, CSS) exceto OSS"; \
 	cmd "lint-format"    "Valida formatação recursiva sem alterar arquivos"; \
 	cmd "ci"             "Executa pipeline local completa de validação"; \
+	sec "Manutenção & Limpeza:"; \
+	cmd "clean"          "Remove artefatos temporários, caches e ambientes virtuais (.venv)"; \
 	echo ""
 
 ### ================================
@@ -169,3 +171,21 @@ lint-format:
 
 ci: test lint-format status
 	echo "✅ Pipeline local aprovada!"
+
+### ================================
+### CLEANUP
+### ================================
+clean:
+	echo "🧹 Limpando artefatos, caches e ambientes virtuais em todos os módulos do Personal..."
+	git submodule foreach --quiet --recursive '[ -f Makefile ] && $(MAKE) clean 2>/dev/null || true' 2>/dev/null || true
+	for r in $(REPOS); do \
+		if [ -e "$$r/Makefile" ]; then \
+			$(MAKE) -C "$$r" clean 2> "/dev/null" || true; \
+		fi; \
+	done
+	rm -rf .venv
+	find . -type d -name "__pycache__" -not -path "*/OSS/*" -exec rm -rf {} + 2> "/dev/null" || true
+	find . -type d -name ".pytest_cache" -not -path "*/OSS/*" -exec rm -rf {} + 2> "/dev/null" || true
+	find . -type d -name ".ruff_cache" -not -path "*/OSS/*" -exec rm -rf {} + 2> "/dev/null" || true
+	find . -type d -name ".mypy_cache" -not -path "*/OSS/*" -exec rm -rf {} + 2> "/dev/null" || true
+	echo "✅ Limpeza do Personal concluída!"
