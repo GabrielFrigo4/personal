@@ -7,7 +7,7 @@ MAKEFLAGS += --no-print-directory -s
 # Makefile: Personal Hub Orchestrator
 # ----------------------------------------------------------------
 
-.PHONY: help clone pull status test audit format prettier lint-format hooks ci main clean
+.PHONY: help clone pull upgit status test audit format prettier lint-format hooks ci main clean
 
 REPOS = Identity/Resumes "Labs/Computer Systems" "Labs/Symbolic Sorcery" Labs/ArqZoo "Engines/Ollama Vision"
 
@@ -24,6 +24,7 @@ help:
 	cmd "clone"          "Inicializa submódulos públicos e clona repositórios privados via SSH"; \
 	cmd "main"           "Alterna todos os submódulos e repositórios clonados para a branch main"; \
 	cmd "pull"           "Atualiza todos os submódulos e repositórios com o GitHub"; \
+	cmd "upgit"          "Atualiza todos os repositórios Git encontrados recursivamente"; \
 	sec "Diagnóstico & Status:"; \
 	cmd "status"         "Exibe status Git resumido dos ecossistemas públicos e privados"; \
 	cmd "hooks"          "Configura e aplica permissões canônicas em .githooks"; \
@@ -71,8 +72,9 @@ clone:
 
 main:
 	echo "🌿 Alternando ecossistema para a branch main..."
-	git submodule foreach --quiet --recursive 'git checkout main 2>/dev/null || git switch main 2>/dev/null || true'
+	git submodule foreach --quiet --recursive 'case "$$sm_path" in */OSS/*|OSS/*) exit 0 ;; esac; git checkout main 2> "/dev/null" || git switch main 2> "/dev/null" || true'
 	for r in $(REPOS); do \
+		case "$$r" in */OSS/*|OSS/*) continue ;; esac; \
 		if [ -e "$$r/.git" ]; then \
 			echo "  🌿 $$r -> main"; \
 			git -C "$$r" checkout main 2> "/dev/null" || git -C "$$r" switch main 2> "/dev/null" || echo "  ⚠️  $$r: falha ao alternar para main."; \
@@ -84,15 +86,29 @@ main:
 
 pull: main
 	echo "🔄 Sincronizando submódulos públicos..."
-	git submodule update --remote --merge
+	git submodule foreach --quiet --recursive 'case "$$sm_path" in */OSS/*|OSS/*) exit 0 ;; esac; echo "⬇️  Pulling $$sm_path..."; git pull --ff-only 2> "/dev/null" || git pull 2> "/dev/null" || echo "⚠️  Falha ao atualizar $$sm_path"'
 	echo "⬇️  Atualizando repositórios privados..."
 	for r in $(REPOS); do \
+		case "$$r" in */OSS/*|OSS/*) continue ;; esac; \
 		if [ -e "$$r/.git" ]; then \
 			echo "⬇️  Pulling $$r..."; \
 			git -C "$$r" pull --ff-only 2> "/dev/null" || git -C "$$r" pull || echo "⚠️  Falha ao atualizar $$r"; \
 		fi; \
 	done
 	echo "✅ Sincronização concluída!"
+
+upgit:
+	echo "🔄 Atualizando repositórios Git..."
+	find . -not -path "*/OSS/*" \( -type d -name ".git" -print -prune \) -o -not -path "*/OSS/*" \( -type f -name ".git" -print \) 2> "/dev/null" | awk '{ n=split($$0, a, "/"); print n, $$0 }' | sort -n -k1,1 | cut -d' ' -f2- | while read -r g; do \
+		d="$$(dirname "$$g")"; \
+		case "$$d" in */OSS/*|OSS/*) continue ;; esac; \
+		echo "# ----------------------------------------------------------------"; \
+		echo "# $$d"; \
+		echo "# ----------------------------------------------------------------"; \
+		git -C "$$d" pull --ff-only 2> "/dev/null" || git -C "$$d" pull || echo "⚠️  Falha ao atualizar $$d"; \
+		echo ""; \
+	done
+	echo "✅ Repositórios Git atualizados!"
 
 status:
 	echo "=== 🌐 Submódulos Públicos ==="
@@ -177,10 +193,11 @@ ci: test lint-format status
 ### ================================
 clean:
 	echo "🧹 Limpando artefatos, caches e ambientes virtuais em todos os módulos do Personal..."
-	git submodule foreach --quiet --recursive '[ -f Makefile ] && $(MAKE) clean 2>/dev/null || true' 2>/dev/null || true
+	git submodule foreach --quiet --recursive 'case "$$sm_path" in */OSS/*|OSS/*) exit 0 ;; esac; [ -f Makefile ] && (cd . && $(MAKE) clean 2> "/dev/null" || true)' 2> "/dev/null" || true
 	for r in $(REPOS); do \
+		case "$$r" in */OSS/*|OSS/*) continue ;; esac; \
 		if [ -e "$$r/Makefile" ]; then \
-			$(MAKE) -C "$$r" clean 2> "/dev/null" || true; \
+			(cd "$$r" && $(MAKE) clean) 2> "/dev/null" || true; \
 		fi; \
 	done
 	rm -rf .venv

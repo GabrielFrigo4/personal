@@ -1,111 +1,73 @@
-# 🚀 Personal — AI Agent Briefing
+# 🤖 AI Agent Briefing
 
-> Este é o **repositório hub** de **Personal** de Gabriel Frigo. Ele orquestra projetos autorais, motores gráficos, protocolos de rede, experimentos de baixo nível, bibliotecas de sistema e identidades públicas.
-
----
-
-## 🧭 Identidade e Papel
-
-O **Personal** é o quartel-general de projetos autorais e experimentação pura, organizado em 5 categorias funcionais:
-
-| Categoria      | Submódulo                                      | Papel                                                         | Repositório Remoto               |
-| :------------- | :--------------------------------------------- | :------------------------------------------------------------ | :------------------------------- |
-| **`Identity`** | [`Portfolio`](Identity/Portfolio/)             | Site pessoal em SvelteKit Estático (Zero Bloat)               | `GabrielFrigo4/gabrielfrigo`     |
-|                | [`Profile`](Identity/Profile/)                 | README canônico do perfil do GitHub                           | `GabrielFrigo4/GabrielFrigo4`    |
-|                | [`Resumes`](Identity/Resumes/)                 | Currículos e cartas em LaTeX                                  | `GabrielFrigo4/resumes`          |
-| **`Engines`**  | [`RNG Engine`](Engines/RNG%20Engine/)          | Engine de jogos e computação gráfica (SDL3 / WebGPU / OpenGL) | `GabrielFrigo4/rng-engine`       |
-|                | [`Ollama Vision`](Engines/Ollama%20Vision/)    | Pipeline paleográfico local (Ollama + Gemma Vision)           | `GabrielFrigo4/ollama-vision`    |
-| **`Systems`**  | [`Posix Socket`](Systems/Posix%20Socket/)      | Servidor HTTP concorrente em C/POSIX explorando FDs           | `GabrielFrigo4/unix-sock`        |
-|                | [`BSD Lib`](Systems/BSD%20Lib/)                | Standard BSD Libraries em C23                                 | `GabrielFrigo4/SBL`              |
-|                | [`BSD Emacs`](Systems/BSD%20Emacs/)            | Manifesto e arquitetura da nova máquina                       | `GabrielFrigo4/bsd-emacs`        |
-|                | [`Orb Kernel`](Systems/Orb%20Kernel/)          | Microkernel assíncrono para Lua em Rust                       | `GabrielFrigo4/orb`              |
-| **`Labs`**     | [`Computer Systems`](Labs/Computer%20Systems/) | CS:APP Attack Lab e laboratórios de arquitetura               | `GabrielFrigo4/ComputerSystems`  |
-|                | [`Symbolic Sorcery`](Labs/Symbolic%20Sorcery/) | Common Lisp & computação simbólica                            | `GabrielFrigo4/symbolic-sorcery` |
-|                | [`ArqZoo`](Labs/ArqZoo/)                       | Simulação algorítmica e grafos em Rust                        | `GabrielFrigo4/ArqZoo`           |
-| **`OSS`**      | [`PackageKit`](OSS/PackageKit/)                | Contribuições upstream e código aberto                        | `PackageKit/PackageKit`          |
+> Diretrizes canônicas, invariantes de engenharia, governança autônoma e protocolo operacional para agentes de inteligência artificial em repositórios do ecossistema.
 
 ---
 
-## 📦 Os Repositórios Federados
+## 🧭 Identidade & Fonte de Contexto
 
-```text
-Personal/
-├── .agents/                   # Governança e runbooks locais de IA
-├── .githooks/                 # Quality gates de pre-commit e commit-msg
-├── .github/                   # Workflows de CI
-├── Engines/                   # Computação gráfica, engines e jogos
-├── Identity/                  # Portfólio, perfil e currículos
-├── Labs/                      # Estudos de arquitetura, Lisp e grafos
-├── OSS/                       # Código aberto upstream
-├── Systems/                   # Protocolos, runtimes e baixo nível
-├── AGENTS.md                  # Este briefing de engenharia
-├── LICENSE                    # Licença MIT
-├── Makefile                   # Orquestrador POSIX silencioso
-├── PRINCIPLES.md              # 22 Princípios de Engenharia aplicados
-├── README.md                  # Apresentação executiva do Personal Hub
-└── TODO.md                    # Matriz de status operacional e roadmap
-```
+Todo agente de IA que atua neste repositório deve ancorar suas decisões na documentação canônica local antes de executar qualquer alteração. Consulte rigorosamente nesta ordem:
+
+1. [README.md](README.md) — Arquitetura, stack técnica, topologia de diretórios e comandos operacionais específicos do repositório.
+2. [TODO.md](TODO.md) — Matriz de status operacional, cobertura de implementação e roadmap de engenharia.
+3. [PRINCIPLES.md](PRINCIPLES.md) — Os 22 Princípios de Engenharia UNIX e diretrizes estritas de Clean Code.
+4. [CONTRIBUTING.md](CONTRIBUTING.md) — Fluxo Git soberano, convenção de commits semânticos e qualidade local.
+5. `ENVIRONMENT.md` — Arquitetura federada do ecossistema (quando presente na raiz do repositório, como no hub `Environment` e seus submódulos centrais).
 
 ---
 
-## ⚠️ Regras Críticas para Agentes de IA
+## 🤝 Protocolo Bidirecional de Esclarecimento Proativo
 
-1. **A Regra de Ouro:** Ao modificar código de um submódulo específico, leia o `AGENTS.md` e `PRINCIPLES.md` correspondente.
-2. **Independência dos Projetos:** Cada projeto mantém sua própria branch, histórico e testes.
-3. **Hermetismo de Produção (`rm -rf .agents`):** Nenhuma compilação ou script deve depender de arquivos em `.agents/`.
-4. **Makefile como Orquestrador:** Use a raiz para inspecionar e atualizar os submódulos de forma unificada.
-5. **Zero-Tweaks Invariant:** O hub deve ser clonável e navegável imediatamente via `git clone --recursive`.
+A autonomia operacional do agente é guiada pelo princípio de alinhamento contínuo: nunca assuma silenciosamente suposições ambíguas.
 
----
+### 🏛️ Alinhamento Socrático (Master -> User)
 
-## 🛡️ Regra da Proatividade e Correção Contínua (Boy Scout Rule)
+Qualquer ambiguidade, inconsistência de requisitos, trade-off arquitetural crítico ou especificação incompleta DEVE ser esclarecido proativamente com o usuário via `ask_question` antes do início da execução em massa. É expressamente proibido adotar suposições silenciosas sobre escopo ou tomar ações destrutivas sem validação prévia.
 
-O agente de IA atua de forma proativa na manutenção e aplicação dos padrões canônicos deste repositório.
+### ⚡ Escalonamento de Subagentes (Worker -> Master)
 
-Ao identificar linhas ou artefatos fora dos padrões estabelecidos:
-
-1. **Notificar concisamente** o usuário sobre o ajuste realizado.
-2. **Corrigir a inconformidade**, aplicando o padrão correspondente:
-    - **Comentários Narrativos:** Eliminar comentários óbvios que apenas narram código executável.
-    - **Banners Estruturais:** Ajustar réguas para exatamente 64 hífens no topo ou 32 caracteres com `### ` no corpo (ou 64 `=` em `.gitignore`), com títulos sempre em MAIÚSCULO.
-    - **Portabilidade POSIX:** Substituir bashismos (`[[ ]]`, `&>`, arrays, `source`) por sintaxe estrita POSIX `/bin/sh`.
-    - **Shebang Universal:** Garantir sempre `#!/usr/bin/env sh` ou `#!/usr/bin/env python3`.
-    - **Sequências ANSI & Escapes:** Não use octais (`\033`, `\001`) para caracteres ou escapes. Use `[ -t 1 ] && echo -n $\x27\e...\x27` ou notação hexadecimal (`\x01`, `\x1b`). Octal é exclusivo para permissões POSIX (`chmod 0755`, `chmod 0644`, `umask`).
-    - **Redirecionamento Seguro:** Envolver destinos em aspas duplas (ex: `> "/dev/null" 2>&1`).
-    - **Makefiles:** Assegurar cabeçalho `.POSIX: .SILENT:`, `MAKEFLAGS += --no-print-directory -s`, alinhamento estético de variáveis e zero `@` redundante.
-    - **Permissões Canônicas:** Aplicar 4 dígitos octais (`chmod 0755`, `chmod 0644`, `chmod 0700`, `chmod 0600`).
-    - **Invariante Out-of-the-Box:** Garantir modos octais corretos no Git Index e auto-cura em tempo de execução sem requerer intervenção manual pós-clone.
-    - **Emissão Semântica de UI:** Substituir `echo` avulsos com emojis pelas rotinas canônicas `_ui_*`.
-    - **Antifragilidade & Resiliência:** Resolução ativa de caminhos em cascata, auto-cura de permissões (0600 em chaves/segredos) e validação defensiva de pré-requisitos.
-    - **Curadoria Cognitiva:** Capturar decisões estruturais e regras tácitas em skills locais compactas (`.agents/skills/`), mantendo-as atualizadas e expurgando ruído obsoleto.
-    - **Refatoração Sem Legado:** Expurgar aliases obsoletos, variáveis mortas e shims de compatibilidade em renomeações.
-    - **Elevação Antifrágil & Shift Seguro:** Usar o bloco explícito `if [ "$(id -u)" -ne 0 ]` para resolução de `ELEVATE` (evitando término fatal sob `set -e` como root) e proteger todo comando `shift` com validação prévia de parâmetros (`[ "$#" -ge N ] && shift N`).
-    - **Simetria de Documentação:** Mover regras ou invariantes universais documentadas erroneamente em sub-membros específicos para o documento de arquitetura do grupo correspondente, eliminando falsas assimetrias.
+Subagentes de execução que identificarem qualquer dúvida de escopo, divergência entre especificação e código real, ou risco de efeito colateral inesperado DEVEM interromper a mutação de arquivos e questionar imediatamente o agente orquestrador pai via `send_message`.
 
 ---
 
-## 🚀 Comandos de Verificação Rápida (Quality Gates)
+## ⚠️ Regras Críticas & Invariantes Soberanas
 
-| Comando            | Finalidade Operacional                                      |
-| :----------------- | :---------------------------------------------------------- |
-| `make help`        | Exibe o catálogo completo de tarefas operacionais           |
-| `make status`      | Inspeciona o estado Git de todos os submódulos              |
-| `make pull`        | Sincroniza todos os submódulos com seus remotos             |
-| `make test`        | Valida sintaxe e scripts locais nos submódulos              |
-| `make audit`       | Executa rotinas de auditoria nos componentes                |
-| `make format`      | Aplica formatação automática em arquivos suportados         |
-| `make prettier`    | Formata arquivos Markdown e JSON com Prettier               |
-| `make lint-format` | Valida conformidade de formatação sem modificar arquivos    |
-| `make hooks`       | Configura permissões e ganchos Git em todos os repositórios |
-| `make ci`          | Executa pipeline local completa de validação integrada      |
+1. **Soberania e Isolamento de Repositórios OSS (`**/OSS/**`):** Projetos de terceiros sob diretórios `OSS/` são estritamente somente-leitura para operações globais, templates, formatação ou auditoria, só podendo ser editados sob ordem explícita e nominal do usuário e seguindo as regras do upstream.
+2. **Desacoplamento Bancada vs. Produção & Zero-Dirty Invariant:** Nunca edite clones de produção diretamente (`~/.local/share/*`, `~/.config/*`, `~/.emacs.d`, etc.). Edite exclusivamente na bancada em `~/Documents/`, valide localmente (`make test`, `make ci`), comite e envie via `git push`. A produção recebe atualizações exclusivamente via `git pull` e DEVE manter `git status` 100% limpo a todo momento (Invariante Zero-Dirty).
+3. **Hermetismo de Produção (`rm -rf .agents`):** O ecossistema é soberano e independente de ferramentas de IA. Código de produção (scripts, Makefiles, hooks, dotfiles, compiladores) não depende de `.agents/` ou `skills/`. Se o diretório `.agents/` for deletado, o repositório opera com 100% de sua integridade.
+4. **Invariante Out-of-the-Box (`0755` / `0644` / `0700` / `0600`):** O repositório deve funcionar imediatamente após um simples `git clone`, sem etapas manuais pós-clone. Permissões octais canônicas devem estar registradas no Git Index (`0755` para executáveis/scripts/hooks, `0644` para arquivos de configuração e documentação, `0700`/`0600` para Vault e chaves). Scripts devem aplicar self-healing de permissões em tempo de execução.
+5. **Taxonomia Tripartite de Comentários:** O código adota estritamente três categorias:
+    - _Comentários de Sistema:_ PERMITIDOS (shebangs, pragmas, linters).
+    - _Comentários Estruturais de 64/32 colunas:_ PERMITIDOS (cabeçalhos de 64 `-` `# ----------------------------------------------------------------`, seções de 32 colunas `### ================================` e `### --------------------------------` com títulos em MAIÚSCULO, réguas de 64 `=` em `.gitignore` `# ================================================================` com títulos em MAIÚSCULO, sem vazamento lateral).
+    - _Comentários Explicativos/Narrativos:_ PROIBIDOS em código, arquivos de configuração e blocos de código dentro de Markdowns.
+6. **Portabilidade POSIX, Makefiles Silenciosos & Boy Scout Rule:**
+    - Sintaxe estrita POSIX `/bin/sh` (`#!/usr/bin/env sh`, sem bashismos).
+    - Makefiles silenciosos com `.POSIX: .SILENT:`, `MAKEFLAGS += --no-print-directory -s`, subshells `(cd dir && $(MAKE))` e zero `@` redundante.
+    - Sequências ANSI via `$'\e'` ou notação hexadecimal `\x1b` (nunca octal `\033`).
+    - Redirecionamento seguro envolvendo destinos em aspas duplas (ex: `> "/dev/null" 2>&1`).
+    - Refatoração Clean-Break sem legado (expurgar shims, aliases obsoletos e variáveis mortas).
+    - Simetria de escopo e não-assimetria de subgrupo na documentação.
+    - Emissão semântica de UI via rotinas canônicas `_ui_*`.
+    - **Boy Scout Rule:** Ao identificar qualquer inconformidade com os padrões estabelecidos, notifique concisamente o usuário e aplique a correção de forma proativa.
+
+---
+
+## 🚀 Comandos Canônicos de Verificação (Quality Gates)
+
+| Comando       | Finalidade Operacional                                           |
+| :------------ | :--------------------------------------------------------------- |
+| `make help`   | Exibe o catálogo interativo de comandos disponíveis              |
+| `make test`   | Executa a suíte automatizada de testes locais                    |
+| `make audit`  | Executa as suítes de auditoria estática de padrões e integridade |
+| `make format` | Formata código-fonte e documentações com Prettier e linters      |
+| `make ci`     | Executa a pipeline local completa de validação integrada         |
+| `make hooks`  | Configura e ativa os ganchos Git com permissões canônicas (0755) |
 
 ---
 
 ## 📖 Referências Obrigatórias
 
-Antes de qualquer modificação neste ecossistema, consulte:
-
-- [README.md](README.md) — Apresentação executiva do Personal Hub
-- [PRINCIPLES.md](PRINCIPLES.md) — 22 Princípios de Engenharia aplicados
-- [TODO.md](TODO.md) — Matriz de status operacional e roadmap
-- [LICENSE](LICENSE) — Licença MIT do projeto
+- [README.md](README.md) — Visão geral, arquitetura e stack técnica
+- [TODO.md](TODO.md) — Roadmap de tarefas e matriz de cobertura
+- [PRINCIPLES.md](PRINCIPLES.md) — Os 22 Princípios de Engenharia Soberanos
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Guia de contribuição, fluxo Git e convenções
