@@ -56,21 +56,25 @@ flowchart TD
 
 ## 🚀 Como Obter e Operar
 
+Clonagem com submódulos públicos:
+
 ```sh
-# Clonagem com submódulos públicos
 git clone --recursive "https://github.com/GabrielFrigo4/personal.git"
 cd personal
+```
 
-# Ou clonagem simples seguida de bootstrap completo (inclui repositórios privados via SSH)
+Bootstrap completo (inclui repositórios privados via SSH):
+
+```sh
 make clone
 ```
 
 ### Operações com o Makefile
 
 ```sh
-make status    # Verifica estado de sincronização dos submódulos
-make pull      # Atualiza submódulos com as branches principais remotas
-make test      # Executa sanity checks locais
+make status
+make pull
+make test
 ```
 
 ---
